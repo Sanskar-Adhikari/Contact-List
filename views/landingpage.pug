@@ -1,0 +1,39 @@
+extends Layout.pug 
+block content 
+    h1 Contact List 
+    a(href='/create') Create a new contact
+    table
+        thead
+            tr
+            th Name
+            th Phone
+            th Email
+            th Address
+            th Contact
+        tbody
+            each contact in contacts
+                tr
+                    td
+                        section
+                        a(href=`/${contact.id}`)= contact.First_Name + ' ' + contact.Last_Name
+                    td
+                        section= contact.Phone_Number
+                    td
+                        section= contact.Email_Address
+                    td
+                        section #{contact.Street}
+                        section
+                            span #{contact.City}, 
+                            span #{contact.State} 
+                            span #{contact.Zip}
+                        section #{contact.Country}
+                    td
+                        section
+                            input(type='checkbox'  disabled checked=contact.Contact_By_Email?true:false)
+                            label(for=`phone${contact.Contact_By_Email}`) Phone
+                        section
+                            input(type='checkbox'  disabled checked=contact.Contact_By_Phone?true:false)
+                            label(for=`email${contact.Contact_By_Phone}`) Email
+                        section
+                            input(type='checkbox'  disabled checked=contact.Contact_By_Mail?true:false)
+                            label(for=`mail${contact.Contact_By_Mail}`) Mail

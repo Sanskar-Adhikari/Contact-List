@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title Contact List
+        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/water.css@2/out/water.css')
+    body
+        if !hide_login
+            if user    
+                span 
+                    span  #{user.uname} #{" "}
+                    a(href='/logout') Sign out 
+            else
+                a(href='/login') Sign in
+        block content

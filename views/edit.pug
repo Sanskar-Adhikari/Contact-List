@@ -1,0 +1,49 @@
+extends Layout.pug 
+
+block content 
+    h1 Update Contact
+    form(action="edit", method="post")
+        fieldset
+            legend Basic Info
+            section
+                label(for="first") First Name:
+                input(type="text", name="first", value= contact.First_Name)
+            section
+                label(for="last") Last Name:
+                input(type="text", name="last", value=contact.Last_Name)
+            section
+                label(for="phone") Phone:
+                input(type="tel", name="phone", value=contact.Phone_Number)
+            section
+                label(for="email") Email:
+                input(type="email", name="email",value=contact.Email_Address)
+        fieldset
+            legend Address
+            section
+                label(for="street") Street:
+                input(type="text", name="street",value=contact.Street)
+            section
+                label(for="city") City:
+                input(type="text", name="city",value=contact.City)
+            section
+                label(for="state") State:
+                input(type="text", name="state",value=contact.State)
+            section
+                label(for="zip") Zip:
+                input(type="text", name="zip",value=contact.Zip)
+            section
+                label(for="country") Country:
+                input(type="text", name="country",value=contact.Country)
+        fieldset
+            legend Contact Preferences
+            section
+                input(type="checkbox", name="Contact_By_Email",  checked=contact.Contact_By_Email?true:false)
+                label(for="Contact_By_Email") Contact by phone
+            section
+                input(type="checkbox", name="Contact_By_Phone", checked=contact.Contact_By_Phone?true:false)
+                label(for="Contact_By_Phone") Contact by email
+            section
+                input(type="checkbox", name="Contact_By_Mail", checked=contact.Contact_By_Mail?true:false )
+                label(for="Contact_By_Mail") Contact by mail
+        button(type="submit") Update
+        a(href="/"+ contact.id) Cancel

@@ -1,0 +1,30 @@
+extends Layout.pug 
+
+block content 
+    h1 Sign In 
+    form(action='/login',method='post')
+        section 
+            label(for='uname') Username
+            br
+            input(type='text', name='uname', required)
+        br
+        section
+            label(for='password') Password
+            br
+            input(type='password',  name='password1', required)
+
+        br
+
+        section
+            button(type='submit') Sign in
+            a(href='/') Nevermind
+            if message 
+                p #{message} 
+        section
+            p Don't have an account yet? #{' '}
+                a(href='/signup') Sign Up Here!
+
+
+
+
+        

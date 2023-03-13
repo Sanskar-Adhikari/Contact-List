@@ -1,0 +1,34 @@
+extends Layout.pug 
+block content 
+    h1 Contact Info
+    h2 #{contact.First_Name} #{contact.Last_Name}
+    hr
+    a(href='/') Back to List
+    p
+      b Phone number:
+      span #{contact.Phone_Number}
+      p
+        i May #{contact.Contact_By_Phone?"":"NOT"} be contacted by phone or text.
+      hr
+
+    p
+      b Email address:
+      span #{contact.Email_Address}
+      p
+        i May #{contact.Contact_By_Email?"":"NOT"} be contacted by email.
+        hr
+    p
+      b Address:
+      br
+      section #{contact.Street}
+      section
+        span #{contact.City}, 
+        span #{contact.State} 
+        span #{contact.Zip}
+      section #{contact.Country}
+      p
+        i May #{contact.Contact_By_Mail?"":"NOT"} be contacted by mail.
+    hr
+    a(href=`/${contact.id}/edit`) Edit contact
+    br
+    a(href=`/${contact.id}/delete`) Delete contact

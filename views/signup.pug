@@ -1,0 +1,44 @@
+extends Layout.pug 
+
+block content 
+    h1 Signup 
+    span Please select a username, and a password. Don't worry about any password rules here, we don't really care much about protecting your information - so 
+    code helloworld
+    span is just fine by us!
+    p
+    form(action='/signup',method='post')
+        section 
+            label(for='fname') First Name
+            br
+            input(type='text',name='fname', required)
+
+        section
+            label(for='lname') Last Name
+            br
+            input(type='text', name='lname', required)
+
+        hr
+            
+        section
+            label(for='uname') User Name
+            br
+            input(type='text', name='uname', required)
+
+        section
+            label(for='password') Password
+            br
+            input(type='password',  name='password1', required)
+        section
+            label(for='password2') Confirm Password
+            br
+            input(type='password',  name='password2', required)
+        hr
+        
+        button(type='submit') Signup
+        a(href='/') Nevermind
+        if message 
+            p #{message}
+        section
+            p Already have an account? #{' '}
+                a(href='/login') Sign in here!
+
